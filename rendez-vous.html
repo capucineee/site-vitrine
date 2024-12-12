@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prise de Rendez-vous</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>VotreLogo</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#galerie">Galerie</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="rendez-vous.html" class="cta-button active">Prendre RDV</a>
+        </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Section Rendez-vous -->
+    <section class="rdv-section">
+        <div class="container">
+            <h2>Prendre un Rendez-vous</h2>
+            <form id="rdv-form" class="rdv-form">
+                <div class="form-group">
+                    <label for="nom">Nom complet *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Téléphone *</label>
+                    <input type="tel" id="telephone" name="telephone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Type de service *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Sélectionnez un service</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="reparation">Réparation</option>
+                        <option value="consultation">Consultation</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date souhaitée *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="heure">Heure souhaitée *</label>
+                    <select id="heure" name="heure" required>
+                        <option value="">Sélectionnez une heure</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message ou commentaire</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">Confirmer le rendez-vous</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Une description de votre entreprise</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <a href="index.html">Accueil</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#galerie">Galerie</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Votre Entreprise. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Validation du formulaire de rendez-vous
+        document.getElementById('rdv-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des données du formulaire
+            const formData = new FormData(this);
+            const rdvData = Object.fromEntries(formData.entries());
+
+            // Validation de base
+            if (!rdvData.nom || !rdvData.email || !rdvData.telephone || !rdvData.service || !rdvData.date || !rdvData.heure) {
+                alert('Veuillez remplir tous les champs obligatoires');
+                return;
+            }
+
+            // Validation de la date (pas de date passée)
+            const selectedDate = new Date(rdvData.date);
+            const today = new Date();
+            if (selectedDate < today) {
+                alert('Veuillez sélectionner une date future');
+                return;
+            }
+
+            // Simulation d'envoi (à remplacer par votre logique d'envoi réelle)
+            alert('Votre demande de rendez-vous a été enregistrée avec succès !');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

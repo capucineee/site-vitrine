@@ -55,6 +55,11 @@ body {
     color: var(--secondary-color);
 }
 
+.nav-links a.active {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -210,6 +215,60 @@ body {
     color: var(--secondary-color);
 }
 
+/* Styles pour la page de rendez-vous */
+.rdv-section {
+    padding: 120px 5% 5rem;
+    background: var(--light-bg);
+}
+
+.rdv-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.rdv-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
 /* Footer */
 footer {
     background: var(--primary-color);
@@ -268,6 +327,14 @@ footer {
     .gallery-grid,
     .contact-container {
         grid-template-columns: 1fr;
+    }
+    
+    .rdv-section {
+        padding: 100px 1rem 2rem;
+    }
+    
+    .rdv-section .container {
+        padding: 1rem;
     }
 }
 
